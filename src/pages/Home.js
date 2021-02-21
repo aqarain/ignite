@@ -6,6 +6,7 @@ import styled from "styled-components";
 import { motion, AnimatePresence, AnimateSharedLayout } from "framer-motion";
 import GameDetail from "../components/GameDetail";
 import { useLocation } from "react-router-dom";
+import { fadeIn } from "../animations";
 
 const Home = () => {
   const location = useLocation();
@@ -22,12 +23,12 @@ const Home = () => {
   );
 
   return (
-    <GameList>
+    <GameList variants={fadeIn} initial="hidden" animate="show">
       <AnimateSharedLayout type="crossfade">
         <AnimatePresence>
           {pathId && <GameDetail pathId={pathId} />}
         </AnimatePresence>
-        {searched.length && (
+        {searched.length ? (
           <div className="searched">
             <h2>Searched Games</h2>
             <Games>
@@ -42,7 +43,7 @@ const Home = () => {
               ))}
             </Games>
           </div>
-        )}
+        ) : null}
         <h2>Upcoming Games</h2>
         <Games>
           {upcoming.map(({ id, name, released, background_image }) => (
