@@ -2,6 +2,8 @@
 
 This is a **Responsive (Mobile Friendly)** database for games just like IMDB built using ReactJS.
 
+The app is deployed on https://aqarain-game-db.herokuapp.com/
+
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
 The **main libraries** used in this project are:
